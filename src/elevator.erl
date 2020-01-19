@@ -57,7 +57,10 @@ elevator(ID, {Low, High}, Current_floor, Moving, On_board, Waiting) ->
             ArePeople == 1 ->
               elevator(ID, {Low, High}, Current_floor + Moving, Moving, LeftOnBoard, LeftWaiting);
             ArePeople == 0 ->
-              elevator(ID, {Low, High}, Current_floor - Moving, - Moving, LeftOnBoard, LeftWaiting)
+              elevator(ID, {Low, High}, Current_floor - Moving, - Moving, LeftOnBoard, LeftWaiting);
+            ArePeople == -1 ->
+              Direction = setDirection(lists:nth(1, LeftOnBoard), Current_floor),
+              elevator(ID, {Low, High}, Current_floor + Direction, Direction, LeftOnBoard, LeftWaiting)
           end;
         OnBoardLength == 0 ->
           if
@@ -96,7 +99,7 @@ are_people_who_want_to_next_floors([{PassangerId, Floor}], CurrentFloor, Moving)
         true -> 0
       end;
     Moving == 0 ->
-      1
+      -1
   end;
 
 are_people_who_want_to_next_floors([{PassangerId, Floor} | T], CurrentFloor, Moving) ->
@@ -112,7 +115,7 @@ are_people_who_want_to_next_floors([{PassangerId, Floor} | T], CurrentFloor, Mov
         true -> are_people_who_want_to_next_floors(T, CurrentFloor, Moving)
       end;
     Moving == 0 ->
-      1
+      -1
   end.
 
 
