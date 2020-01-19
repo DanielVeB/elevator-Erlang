@@ -11,7 +11,7 @@ Program is written in erlang - concurrent and functional programming language, s
 Each elevator in system is self-sufficient process so it is independent from the other processes.
 ## How to use
 
-###Install erlang
+### Install erlang
 If you don't have yet, install Erlang
 #### For Ubuntu
 `apt-get install erlang`
@@ -22,7 +22,7 @@ If you don't have yet, install Erlang
 
 You can also visit [erlang.org/downloads](https://www.erlang.org/downloads) to get more information.
 
-###Run program
+### Run program
 
  Open a terminal, go to directory where the program is and then type in 
  `erl` 
