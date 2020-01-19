@@ -110,7 +110,9 @@ are_people_who_want_to_next_floors([{PassangerId, Floor} | T], CurrentFloor, Mov
       if
         Floor < CurrentFloor -> 1;
         true -> are_people_who_want_to_next_floors(T, CurrentFloor, Moving)
-      end
+      end;
+    Moving == 0 ->
+      1
   end.
 
 

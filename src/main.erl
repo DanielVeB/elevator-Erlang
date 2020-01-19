@@ -60,9 +60,6 @@ sim({Min, Max}, N) ->
   PIDS = setElevator({Min,Max}, N),
   register_passengers(PIDS, {Min, Max}, N).
 
-sim1() ->
-  sim({0,10},1).
-
 
 register_passengers(PIDS, {Min, Max}, N) ->
   ElPID = lists:nth(rand:uniform(N), PIDS),
